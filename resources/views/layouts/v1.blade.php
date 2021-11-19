@@ -22,6 +22,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('v1/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('v1/plugins/summernote/summernote-bs4.min.css')}}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('v1/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('v1/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('v1/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   {{-- toastr --}}
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="{{asset('v1/dist/css/adminlte.min.css')}}">
@@ -229,10 +233,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('v1/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('v1/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 
-<script src="{{asset('v1/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('v1/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('v1/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('v1/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{asset('v1/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
 <script src="{{asset('v1/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
 <script src="{{asset('v1/plugins/jszip/jszip.min.js')}}"></script>
@@ -259,6 +259,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Summernote -->
 <script src="{{asset('v1/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+<script src="{{asset('v1/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('v1/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('v1/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('v1/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{asset('v1/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('v1/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('v1/plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{asset('v1/plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{asset('v1/plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{asset('v1/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('v1/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{asset('v1/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 <script>
   $(function(){
      //Initialize Select2 Elements
@@ -310,11 +322,8 @@ $('.select2bs4').select2({
 </script>
 <script>
   $(function () {
-    $(".example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
+
+    $('#example1').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,
@@ -322,7 +331,8 @@ $('.select2bs4').select2({
       "info": true,
       "autoWidth": false,
       "responsive": true,
-    });
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 </script>
 

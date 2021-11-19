@@ -15,7 +15,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class ProductController extends Controller
 {
 
-    public function paginate($items, $perPage = 12, $page = null, $options = [])
+    public function paginate($items, $perPage = 8, $page = null, $options = [])
 
     {
 
@@ -45,8 +45,7 @@ class ProductController extends Controller
         $dataasli = $apiresponse->collect();
         // dd($dataasli);
         $tentangkamis = TentangKami::all();
-        $array = $dataasli['products'];
-        $data = $this->paginate($array);
+        $data = $dataasli['products'];
         $dataCategory = Http::get('https://adminoffice.almalikbuku.com/api/categories');
         $category = $dataCategory->collect();
         return view('product',compact('data','totalCart','program','profile','tentangkamis','category'));

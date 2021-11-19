@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h5>Total Transaksi</h5>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h5>Total Transaksi Pending</h5>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h5>Total Transaksi Lunas</h5>
@@ -62,13 +62,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+        </div>
+        <div class="row">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h5>Total Omzet</h5>
                     </div>
                     <div class="card-body">
                         <h2>Rp {{number_format($totalOmzet)}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Total Laba</h5>
+                    </div>
+                    <div class="card-body">
+                        <h2>Rp {{number_format($totalLaba)}}</h2>
                     </div>
                 </div>
             </div>
@@ -94,6 +106,41 @@
                                     <th>#</th>
                                 </tr>
                             </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Product</h2>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Harga</th>
+                                    <th>Harga Reseller</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data as $index => $row)
+<tr>
+                                    <td>{{$index+1}}</td>
+                                    <td><img src="{{$row['image']}}" width="100px" alt="{{$row['slug']}}"></td>
+                                    <td>{{$row['title']}}</td>
+                                    <td>Rp {{number_format($row['price'])}}</td>
+                                    <td>Rp {{number_format($row['price_reseller'])}}</td>
+</tr>
+                                @endforeach
+
+                            </tbody>
                         </table>
                     </div>
                 </div>
